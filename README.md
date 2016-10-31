@@ -108,7 +108,7 @@ docker attach web
 
 ### Search all versions of an image from local store:
 `docker images <image>`
-- Example
+#### Example:
 `docker images ubuntu`
 
 ### Pull an image from Docker Hub with a specific version:
