@@ -111,6 +111,11 @@ docker attach web
 #### Example:
 `docker images ubuntu`
 
+### Search all versions of an image on Docker Hub:
+`docker search <image>`
+#### Example:
+`docker search mysql`
+
 ### Pull an image from Docker Hub with a specific version:
 `docker pull <image>:<version>`
 #### Example:
