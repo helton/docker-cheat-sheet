@@ -2,7 +2,6 @@
 
 List of useful Docker commands.
 
-## Basic Commands
 
 ### Show the Docker version:
 `docker version`
@@ -88,9 +87,6 @@ docker ps -f status=exited
 docker attach 59c8b1bba36f
 docker attach web
 ```
-
-## Advanced Commands
-
 ### Remove all containers at once! It pipes all containers id to the `docker rm` command:
 `docker rm $(docker ps -aq)`
 
@@ -105,12 +101,12 @@ docker attach web
 #### Example:
 `docker run -it centos /bin/bash`
 
-### Pull all versions of a image from Docker Hub:
+### Pull all versions of an image from Docker Hub:
 `docker pull -a <image>`
 #### Example:
 `docker pull -a ubuntu`
 
-### Search all versions of a image from local store:
+### Search all versions of an image from local store:
 `docker images <image>`
 - Example
 `docker images ubuntu`
