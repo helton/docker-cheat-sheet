@@ -135,67 +135,67 @@ Now just create a container with your brand new image:
 ### Exit container without killing it:
 *A container contains a single process. If you kill this process, it'll have no more process running, killing the container as well. The command below make sure that the container will still be running after you detach your terminal from it:*
 
-=> Press <kbd>Ctrl</kbd><kbd>P</kbd><kbd>Q</kbd>
+=> Press <kbd>Ctrl</kbd> + <kbd>P</kbd> + <kbd>Q</kbd>
 
 ## Dockerfile
 
-### Examples (hopefully following the (Best practices for writing Dockerfiles)[https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/])
+### Examples (hopefully following the [Best practices for writing Dockerfiles](https://docs.docker.com/engine/userguide/eng-image/dockerfile_best-practices/))
 *Note:* To run the commands below to build the images and create the containers make sure you're on `dockerfiles` directory on this repository. If desired, a full path to the dockerfile can be specified.
 All commands here:
 * build an image based on a dockerfile
 * create a container to run it
 * remove the container
 * remove the built image
-Checkout the (Dockerfile reference)[https://docs.docker.com/engine/reference/builder/] for more details about the *Dockerfile*.
+Checkout the [Dockerfile reference](https://docs.docker.com/engine/reference/builder/) for more details about the *Dockerfile*.
 
-1) Create an image based on busybox:latest and show the current date:
+#### 1) Create an image based on busybox:latest and show the current date:
 ```
 FROM busybox:latest
 MAINTAINER Helton Carlos de Souza <helton.development@gmail.com>
 CMD ["date"]
 ```
-#### Building and running it:
+##### Building and running it:
 ```
 docker build -t h3170n/busybox-show-date:latest ./busybox-show-date/ && \
 docker run --rm h3170n/busybox-show-date:latest && \
 docker rmi h3170n/busybox-show-date:latest
 ```
 
-2) Create an image based on alpine:latest and print `Hello, World` to the console:
+#### 2) Create an image based on alpine:latest and print `Hello, World` to the console:
 ```
 FROM alpine:latest
 MAINTAINER Helton Carlos de Souza <helton.development@gmail.com>
 ENTRYPOINT ["/bin/echo"]
 CMD ["\"Hello, World\""]
 ```
-#### Building and running it:
+##### Building and running it:
 ```
 docker build -t h3170n/alpine-hello-world:latest ./alpine-hello-world/ && \
 docker run --rm h3170n/alpine-hello-world:latest && \
 docker rmi h3170n/alpine-hello-world:latest
 ```
 
-3) Create an image based on alpine:latest and print the distro version to the console:
+#### 3) Create an image based on alpine:latest and print the distro version to the console:
 ```
 FROM alpine:latest
 MAINTAINER Helton Carlos de Souza <helton.development@gmail.com>
 ENTRYPOINT ["/bin/cat"]
 CMD ["/etc/lsb-release"]
 ```
-#### Building and running it:
+##### Building and running it:
 ```
 docker build -t h3170n/alpine-show-distro:latest ./alpine-show-distro/ && \
 docker run --rm h3170n/alpine-show-distro:latest && \
 docker rmi h3170n/alpine-show-distro:latest
 ```
 
-4) Create an image based on ubuntu:16.10 and install nginx:
+#### 4) Create an image based on ubuntu:16.10 and install nginx:
 ```
 FROM ubuntu:16.10
 MAINTAINER Helton Carlos de Souza <helton.development@gmail.com>
 RUN apt-get update && apt-get install -y nginx
 ```
-#### Building and running it:
+##### Building and running it:
 ```
 docker build -t h3170n/ubuntu-install-nginx:latest ./ubuntu-install-nginx/ && \
 docker run --rm h3170n/ubuntu-install-nginx:latest && \
